@@ -1,0 +1,208 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+/* For use in src/lib/core/theming/_palette.scss */
+$primary-palette: (
+    50 : #e0fef7,
+    100 : #b3fbec,
+    200 : #80f9df,
+    300 : #4df7d2,
+    400 : #26f5c8,
+    500 : #00f3be,
+    600 : #00f1b8,
+    700 : #00efaf,
+    800 : #00eda7,
+    900 : #00ea99,
+    A100 : #ffffff,
+    A200 : #defff2,
+    A400 : #abffde,
+    A700 : #91ffd4,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$accent-palette: (
+    50 : #ede5fb,
+    100 : #d2bff4,
+    200 : #b594ed,
+    300 : #9769e6,
+    400 : #8049e0,
+    500 : #6a29db,
+    600 : #6224d7,
+    700 : #571fd2,
+    800 : #4d19cd,
+    900 : #3c0fc4,
+    A100 : #f4f1ff,
+    A200 : #ccbeff,
+    A400 : #a48bff,
+    A700 : #8f72ff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+$warn-palette: (
+    50 : #f3e0e0,
+    100 : #e0b3b3,
+    200 : #cc8080,
+    300 : #b84d4d,
+    400 : #a82626,
+    500 : #990000,
+    600 : #910000,
+    700 : #860000,
+    800 : #7c0000,
+    900 : #6b0000,
+    A100 : #ff9a9a,
+    A200 : #ff6767,
+    A400 : #ff3434,
+    A700 : #ff1a1a,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+
+//FIXME: is there a better way to import the colors from the angular palette? (See: webapp\node_modules\@angular\material\core\theming\_palette.scss)
+// See: webapp\node_modules\@angular\material\core\theming\_palette.scss
+// @deprecated renamed to $dark-primary-text.
+// @breaking-change 8.0.0
+$black-87-opacity: rgba(black, 0.87);
+// @deprecated renamed to $light-primary-text.
+// @breaking-change 8.0.0
+$white-87-opacity: rgba(white, 0.87);
+// @deprecated use $dark-[secondary-text,disabled-text,dividers,focused] instead.
+// @breaking-change 8.0.0
+$black-12-opacity: rgba(black, 0.12);
+// @deprecated use $light-[secondary-text,disabled-text,dividers,focused] instead.
+// @breaking-change 8.0.0
+$white-12-opacity: rgba(white, 0.12);
+// @deprecated use $dark-[secondary-text,disabled-text,dividers,focused] instead.
+// @breaking-change 8.0.0
+$black-6-opacity: rgba(black, 0.06);
+// @deprecated use $light-[secondary-text,disabled-text,dividers,focused] instead.
+// @breaking-change 8.0.0
+$white-6-opacity: rgba(white, 0.06);
+$dark-primary-text: rgba(black, 0.87);
+$dark-secondary-text: rgba(black, 0.54);
+$dark-disabled-text: rgba(black, 0.38);
+$dark-dividers: rgba(black, 0.12);
+$dark-focused: rgba(black, 0.12);
+$light-primary-text: white;
+$light-secondary-text: rgba(white, 0.7);
+$light-disabled-text: rgba(white, 0.5);
+$light-dividers: rgba(white, 0.12);
+$light-focused: rgba(white, 0.12);
+
+// Background palette for light themes.
+$custom-light-theme-background-palette: (
+  status-bar: map.get(mat.$grey-palette, 300),
+  app-bar:    map.get(mat.$grey-palette, 100),
+  background: #eaeaea,
+  hover:      rgba(black, 0.04), // TODO(kara): check style with Material Design UX
+  card:       white,
+  dialog:     white,
+  disabled-button: rgba(black, 0.12),
+  raised-button: white,
+  focused-button: $dark-focused,
+  selected-button: map.get(mat.$grey-palette, 300),
+  selected-disabled-button: map.get(mat.$grey-palette, 400),
+  disabled-button-toggle: map.get(mat.$grey-palette, 200),
+  unselected-chip: map.get(mat.$grey-palette, 300),
+  disabled-list-option: map.get(mat.$grey-palette, 200),
+  tooltip: map.get(mat.$grey-palette, 700),
+);
+
+// Background palette for dark themes.
+$custom-dark-theme-background-palette: (
+  status-bar: black,
+  app-bar:    map.get(mat.$grey-palette, 900),
+  background: #272727,
+  hover:      rgba(white, 0.04), // TODO(kara): check style with Material Design UX
+  card:       map.get(mat.$grey-palette, 800),
+  dialog:     map.get(mat.$grey-palette, 800),
+  disabled-button: rgba(white, 0.12),
+  raised-button: map.get(mat.$grey-palette, 800),
+  focused-button: $light-focused,
+  selected-button: map.get(mat.$grey-palette, 900),
+  selected-disabled-button: map.get(mat.$grey-palette, 800),
+  disabled-button-toggle: black,
+  unselected-chip: map.get(mat.$grey-palette, 700),
+  disabled-list-option: rgba(white, 0.12),
+  tooltip: map.get(mat.$grey-palette, 700),
+);
+
+// Foreground palette for light themes.
+$custom-light-theme-foreground-palette: (
+  base:              black,
+  divider:           $dark-dividers,
+  dividers:          $dark-dividers,
+  disabled:          $dark-disabled-text,
+  disabled-button:   rgba(black, 0.26),
+  disabled-text:     $dark-disabled-text,
+  elevation:         black,
+  hint-text:         $dark-disabled-text,
+  secondary-text:    $dark-secondary-text,
+  icon:              rgba(black, 0.54),
+  icons:             rgba(black, 0.54),
+  text:              rgba(black, 0.87),
+  slider-min:        rgba(black, 0.87),
+  slider-off:        rgba(black, 0.26),
+  slider-off-active: rgba(black, 0.38),
+);
+
+// Foreground palette for dark themes.
+$custom-dark-theme-foreground-palette: (
+  base:              white,
+  divider:           $light-dividers,
+  dividers:          $light-dividers,
+  disabled:          $light-disabled-text,
+  disabled-button:   rgba(white, 0.3),
+  disabled-text:     $light-disabled-text,
+  elevation:         black,
+  hint-text:         $light-disabled-text,
+  secondary-text:    $light-secondary-text,
+  icon:              white,
+  icons:             white,
+  text:              white,
+  slider-min:        white,
+  slider-off:        rgba(white, 0.3),
+  slider-off-active: rgba(white, 0.3),
+);

@@ -1,0 +1,8 @@
+@import 'components/top-bar/top-bar.component.scss';
+@import 'components/side-bar/side-bar.component.scss';
+@import 'profile.component';
+@mixin profile-theme($theme) {
+    @include _profile-top-bar($theme);
+    @include _profile-side-bar($theme);
+    @include _profile($theme);
+}

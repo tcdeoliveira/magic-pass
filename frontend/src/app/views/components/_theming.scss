@@ -1,0 +1,6 @@
+@import 'card/card.component.scss';
+@import 'page-header/page-header.component.scss';
+@mixin views-components($theme) {
+    @include _card($theme);
+    @include _page-header($theme);
+}

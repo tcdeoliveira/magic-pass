@@ -1,0 +1,7 @@
+
+@use './src/app/core/theming';
+html, body { height: 100% }
+body { margin: 0; }
+.container{
+    box-sizing: border-box;
+}

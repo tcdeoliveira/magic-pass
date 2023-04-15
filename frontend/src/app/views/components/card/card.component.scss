@@ -1,0 +1,48 @@
+@use '@angular/material' as mat;
+@use 'sass:map';
+
+@mixin _card($theme) {
+    $primary: map.get($theme, primary);
+    $accent: map.get($theme, accent);
+    $warn: map.get($theme, warn);
+    $background: map.get($theme, background);
+    $foreground: map.get($theme, foreground);  
+    .card{
+        background-color: mat.get-color-from-palette($primary, 500);
+        height: 100%;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 1rem;
+        position: relative;
+        border-radius: 5px;
+        overflow: hidden;
+        &::before{
+            width: 0%;
+            height: 100%;
+            content: "";
+            transition: all ease-in-out 0.3s;
+            background-color: mat.get-color-from-palette($accent, 500);
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .card__content{
+            color: mat.get-color-from-palette($primary, '500-contrast');
+            z-index: 2;
+            position: relative;
+            transition: color ease-in-out 0.1s;
+            transition-delay: 0.2s;
+        }
+        &:hover{
+            z-index: 1;
+            cursor: pointer;
+            .card__content{
+                color: #fff;
+                transition-delay: 0s;
+            }
+            &::before{
+                width: 100%;
+            }
+        }    
+    }
+}

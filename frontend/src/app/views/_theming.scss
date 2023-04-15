@@ -1,0 +1,7 @@
+@import 'dashboard';
+@import 'components';
+@mixin views-theme($theme) {
+    @include dashboard($theme);
+    @include views-components($theme);
+}
+  

@@ -1,0 +1,28 @@
+@use '@angular/material' as mat;
+@use 'sass:map';
+
+@mixin _dashboard-status-caerd($theme) {
+    $primary: map.get($theme, primary);
+    $accent: map.get($theme, accent);
+    $warn: map.get($theme, warn);
+    $background: map.get($theme, background);
+    $foreground: map.get($theme, foreground);  
+    
+    .status-card{
+        position: relative;
+        height: 90px;
+        max-height: 90px;
+        .status-card__label{
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .status-card__value{
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            margin: 0;
+            font-size: 1.8rem;
+        }
+    }
+}

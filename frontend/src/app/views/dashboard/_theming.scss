@@ -1,0 +1,7 @@
+@import './dashboard.component.scss';
+@import './components/status-card/status-card.component.scss';
+@mixin dashboard($theme) {
+    @include _dashboard($theme);
+    @include _dashboard-status-caerd($theme);
+}
+  

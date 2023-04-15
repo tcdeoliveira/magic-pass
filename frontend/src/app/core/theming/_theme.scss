@@ -1,0 +1,49 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+@include mat.core();
+@import '_palette';
+@import '_all-theme';
+
+$primary: mat.define-palette($primary-palette);
+$accent: mat.define-palette($accent-palette);
+$warn: mat.define-palette($warn-palette);
+
+$light-theme: mat.define-light-theme((
+  color: (
+    primary: $primary,
+    accent: $accent,
+    warn: $warn    
+  )
+));
+
+$dark-theme: mat.define-dark-theme((
+  color: (
+    primary: $primary,
+    accent: $accent,
+    warn: $warn
+  ),
+  // typography: mat.define-typography-config(),
+  // density: 0
+));
+
+$material-theme-overrides-light: (
+  'color': (
+    'background': $custom-light-theme-background-palette,
+    'foreground': $custom-light-theme-foreground-palette,
+  ),
+);
+$light-theme: map.deep-merge($light-theme, $material-theme-overrides-light);
+@include mat.all-component-themes($light-theme);
+@include custom-components-theme($light-theme);
+// Apply the light theme only when the user prefers light themes.
+@media (prefers-color-scheme: dark) {
+      $material-theme-overrides-dark: (
+    'color': (
+      'background': $custom-dark-theme-background-palette,
+      'foreground': $custom-dark-theme-foreground-palette,
+    ),
+  );
+  $dark-theme: map.deep-merge($dark-theme, $material-theme-overrides-dark);
+  @include mat.all-component-colors($dark-theme);
+  @include custom-components-theme($dark-theme);
+}

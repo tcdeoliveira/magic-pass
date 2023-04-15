@@ -1,0 +1,47 @@
+@use '@angular/material' as mat;
+@use 'sass:map';
+
+@mixin _global($theme) {
+    $accent: map.get($theme, accent);
+    $background: map.get($theme, background);
+    $selection_background: rgba(mat.get-color-from-palette($accent, 500), 0.3);
+    $selection_color: mat.get-color-from-palette($accent, '500-contrast');
+    ::-moz-selection {
+        color: $selection_color;
+        background: $selection_background;
+    }
+      
+    ::selection {
+        color: $selection_color;
+        background: $selection_background;
+    }
+
+    $table_background: mat.get-color-from-palette($background, 'selected-button');
+    .app-table{
+        box-shadow: none;
+        width: 100%;
+        tr{
+            &:nth-child(odd){
+                background-color:rgba($table_background, 0.4)
+            }
+            &:nth-child(even){
+                background-color:rgba($table_background, 0.5)
+            }
+        }
+        thead{
+            tr{
+                background-color:rgba($table_background, 0.2) !important
+            }
+        }
+    }
+
+    .mat-mdc-paginator{
+        margin-top: 1rem;
+        background-color:rgba($table_background, 0.7)
+    }
+      
+    .mat-mdc-form-field {
+        font-size: 14px;
+        width: 100%;
+    }
+}

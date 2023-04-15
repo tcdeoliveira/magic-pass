@@ -1,0 +1,46 @@
+@use '@angular/material' as mat;
+@use 'sass:map';
+
+@mixin _profile-side-bar($theme) {
+    $primary: map.get($theme, primary);
+    $accent: map.get($theme, accent);
+    $warn: map.get($theme, warn);
+    $background: map.get($theme, background);
+    $foreground: map.get($theme, foreground);
+    .profile-side-bar{
+        span{
+            text-transform: uppercase;
+            color: rgba(mat.get-color-from-palette($foreground, 'disabled-text'), 0.4);
+        }
+        ul{
+            width: 100%;
+            padding: 0;
+            li{
+                width: 100%;
+                list-style: none;
+                display: flex;
+                flex-direction: column;     
+                margin: 0;
+                margin-bottom: 10px;
+                &:last-child{
+                    margin-bottom: 0;
+                }
+                a{
+                    display: flex;
+                    text-decoration: none;
+                    cursor: pointer;
+                    color: mat.get-color-from-palette($foreground, text);
+                    width: 100%;
+                    transition: all 0.3s;
+                    &:hover, &.active{
+                        color: mat.get-color-from-palette($primary, 500);
+                        filter: brightness(0.9);
+                    }
+                    &:hover{
+                        font-size: 1rem;
+                    }
+                }
+            }
+        }
+    }
+}

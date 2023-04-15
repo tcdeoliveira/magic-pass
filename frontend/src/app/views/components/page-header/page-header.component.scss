@@ -1,0 +1,16 @@
+@use '@angular/material' as mat;
+@use 'sass:map';
+
+@mixin _page-header($theme) {
+    $primary: map.get($theme, primary);
+    $accent: map.get($theme, accent);
+    $warn: map.get($theme, warn);
+    $background: map.get($theme, background);
+    $foreground: map.get($theme, foreground);  
+
+    .page-header{
+        $bg: mat.get-color-from-palette($background, 'card');
+        border-bottom: 1px solid rgba($bg, 0.2);
+        margin-bottom: 0.75rem;
+    }
+}
