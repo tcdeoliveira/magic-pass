@@ -1,0 +1,31 @@
+<app-page-header title="Passwords">
+    <div class="d-flex align-content-end justify-content-end">
+        <button (click)="openAddItemPopUp()" mat-flat-button color="primary">Novo</button>
+    </div>
+</app-page-header>
+
+<app-pop-up 
+    title="Salvar Password"
+    [actions]="addNewPopUpFooterActions"
+    actionCancel="true" 
+    actionSave="true" 
+    (onCloseEvent)="closeAddItemPopUp()" 
+    (onCancelEvent)="closeAddItemPopUp()" 
+    *ngIf="shouldShowAddNewItemPopUp$ | async">
+    <div>
+        <form [formGroup]="keyForm" class="d-flex flex-column">
+            <mat-form-field appearance="outline">
+                <mat-label>Name</mat-label>
+                <input matInput placeholder="Name" id="name" formControlName="name">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Url</mat-label>
+                <input matInput placeholder="Url" id="url" formControlName="url">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput placeholder="Password" id="password" formControlName="password">
+            </mat-form-field>
+        </form>
+    </div>
+</app-pop-up>

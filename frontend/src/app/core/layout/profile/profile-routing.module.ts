@@ -6,10 +6,9 @@ const routes: Routes = [
   { 
     path: '', component: ProfileComponent,
     children: [
-      { path: 'dashboard', loadChildren: () => import('../../../views/dashboard/dashboard.module').then(m => m.DashboardModule) },
-      { path: 'investments', loadChildren: () => import('../../../views/investments/investments.module').then(m => m.InvestmentsModule) },
-      { path: 'brokerage-firms', loadChildren: () => import('../../../views/brokerage-firms/brokerage-firms.module').then(m => m.BrokerageFirmsModule) },
-      { path: '**', redirectTo: '/dashboard'}
+      { path: 'keys', loadChildren: () => import('../../../views/keys/keys.module').then(m => m.KeysModule) },
+      { path: 'tags', loadChildren: () => import('../../../views/tags/tags.module').then(m => m.TagsModule) },
+      { path: '**', redirectTo: '/keys'}
     ]
   }
 ];

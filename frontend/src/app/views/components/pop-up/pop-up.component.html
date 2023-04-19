@@ -1,0 +1,20 @@
+
+<div class="pop-up mat-elevation-z10">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 offset-lg-1 pop-up__container mat-elevation-z8 d-flex flex-column">
+          <button class="pop-up__container__close" mat-icon-button color="accent" (click)="onClose()">
+            <fa-icon [icon]="faXmark"></fa-icon>
+          </button>
+          <app-pop-up-header [title]="title"></app-pop-up-header>
+          <div class="pop-up__container__content flex-grow-1 ">
+            <ng-content></ng-content>
+          </div>
+          <app-pop-up-footer>
+            <button *ngIf="actions?.cancel" (click)="onCancel()" mat-button color="accent">Cancelar</button>
+            <button *ngIf="actions?.save" class="mx-lg-2"mat-flat-button color="primary">Salvar</button>
+          </app-pop-up-footer>
+        </div>
+      </div>
+    </div>
+  </div>
