@@ -8,6 +8,7 @@ import { FooterComponent } from './core/layout/general-components/footer/footer.
 import { SchrollTopComponent } from './core/layout/general-components/schroll-top/schroll-top.component';
 import { ProgressBarComponent } from './core/layout/general-components/progress-bar/progress-bar.component';
 import { ProgressSpinnerComponent } from './core/layout/general-components/progress-spinner/progress-spinner.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ProgressSpinnerComponent } from './core/layout/general-components/progr
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

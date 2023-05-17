@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { FormBuilder } from '@angular/forms';
+import { Component, ComponentFactoryResolver, Injector, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 
 @Component({
   selector: 'app-keys',
@@ -9,41 +7,20 @@ import { FormBuilder } from '@angular/forms';
 })
 export class KeysComponent implements OnInit{
 
-  shouldShowAddNewItemPopUp = new BehaviorSubject(false);
-  shouldShowAddNewItemPopUp$: Observable<boolean> | undefined;
-  addNewPopUpFooterActions = {
-    cancel:true,
-    save:true
-  }
+  @ViewChild('newContainer', { read: ViewContainerRef })
+  newContainer!: ViewContainerRef;
 
-  keyForm = this.fb.group({
-    name: [''],
-    password: [''],
-    url: [''],
-    notes: ['']
-  });
+  constructor(private componentFactoryResolver: ComponentFactoryResolver, private injector:Injector) {}
 
-  constructor(private fb: FormBuilder) { }
-
-  /**
-   * This function will handler the the AddNewItem pop-up
-   * It will set 'false' to the pop-up observable when the close button was clicked
-   * @returns void
-   */
-  closeAddItemPopUp(): void{
-    this.shouldShowAddNewItemPopUp.next(false);
-  }
-  
-  /**
-   * This function will handler the the AddNewItem pop-up
-   * It will set 'true' to the pop-up observable "New" button was clicked
-   * @returns void
-   */
-  openAddItemPopUp(): void{
-    this.shouldShowAddNewItemPopUp.next(true);
-  }
-  
   ngOnInit(): void {
-    this.shouldShowAddNewItemPopUp$ = this.shouldShowAddNewItemPopUp.asObservable();
+    
+  }
+  ngAfterViewInit() {}
+
+  async openAddItemPopUp(){
+    console.log('fsssdx')
+    const {NewComponent} = await import ('./new/new.component')
+    const newFactory = this.componentFactoryResolver.resolveComponentFactory(NewComponent)
+    const {instance} = this.newContainer.createComponent(newFactory, undefined, this.injector)
   }
 }
