@@ -11,6 +11,10 @@ import { faWandMagicSparkles } from '@fortawesome/free-solid-svg-icons';
 import { Observable } from 'rxjs';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { PopUpComponentsModule } from '../../components/pop-up/pop-up-components.module';
+import { MatBottomSheet, MatBottomSheetRef } from '@angular/material/bottom-sheet';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+import { PasswordMakerPopupComponent } from '../../components/password-maker-popup/password-maker-popup.component';
+import { PasswordMakerPopupModule } from '../../components/password-maker-popup/password-maker-popup.module';
 
 @Component({
   selector: 'app-new',
@@ -33,7 +37,6 @@ export class NewComponent {
     url: [''],
     notes: ['']
   }); 
-
 
   constructor(private fb: FormBuilder) { }
 
@@ -67,21 +70,24 @@ export class NewComponent {
 
 @NgModule({
   declarations: [
-    NewComponent
+    NewComponent,
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
     FontAwesomeModule,
-    //Angular Material Modules
+    PasswordMakerPopupModule,
+    // Angular Material Modules
     MatButtonModule,
     MatTableModule,
     MatFormFieldModule,
     MatInputModule,
     MatPaginatorModule,
+    MatBottomSheetModule, // Importe o MatBottomSheetModule aqui
     PopUpComponentsModule,
   ],
+  providers: [MatBottomSheet], // Adicione o MatBottomSheet como provedor
   exports: [
   ]
 })

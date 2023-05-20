@@ -16,13 +16,16 @@
                 <mat-label>Url</mat-label>
                 <input matInput placeholder="Url" id="url" formControlName="url">
             </mat-form-field>
-            <mat-form-field appearance="outline">
-                <mat-label>Password</mat-label>
-                <input matInput placeholder="Password" id="password" formControlName="password">
-                <button mat-icon-button matSuffix (click)="magicPass()">
-                    <fa-icon [icon]="faWandMagicSparkles"></fa-icon>
-                </button>
-            </mat-form-field>
+            <div class="position-relative">
+                <mat-form-field appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input matInput placeholder="Password" id="password" formControlName="password">
+                    <button mat-icon-button matSuffix (click)="magicPass()">
+                        <fa-icon [icon]="faWandMagicSparkles"></fa-icon>
+                    </button>
+                </mat-form-field>
+                <app-pass-maker-popup height="300" width="400"></app-pass-maker-popup>
+            </div>
         </form>
     </div>
 </app-pop-up>

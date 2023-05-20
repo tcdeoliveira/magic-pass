@@ -13,7 +13,7 @@ export class KeysComponent implements OnInit{
   constructor(private componentFactoryResolver: ComponentFactoryResolver, private injector:Injector) {}
 
   ngOnInit(): void {
-    
+    this.openAddItemPopUp();
   }
   ngAfterViewInit() {}
 

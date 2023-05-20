@@ -1,6 +1,10 @@
 @import 'card/card.component.scss';
 @import 'page-header/page-header.component.scss';
+@import 'pop-up/pop-up.component.scss';
+@import 'password-maker-popup/password-maker-popup.component.scss';
 @mixin views-components($theme) {
     @include _card($theme);
+    @include _pop-up($theme);
     @include _page-header($theme);
+    @include _pass-maker-popup($theme);
 }
