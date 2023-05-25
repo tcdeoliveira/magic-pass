@@ -14,6 +14,7 @@ import {MatSliderModule} from '@angular/material/slider';
 
 
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -30,8 +31,9 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     MatSlideToggleModule,
     MatAutocompleteModule,
     MatDialogModule,
-   // MatRadioModule,
-    MatSliderModule
+    MatRadioModule,
+    MatSliderModule,
+    HttpClientModule
   ],
   exports: [
     PasswordMakerPopupComponent

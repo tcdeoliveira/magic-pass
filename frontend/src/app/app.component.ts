@@ -11,13 +11,13 @@ export class AppComponent {
   separetor = '$';
   wordsArray:string[]=[];
   constructor(httpClient:HttpClient){
-    httpClient.get('assets/words.txt', {headers: {}, responseType:'text'})
-    .subscribe((data:any) => { 
-      this.wordsArray=data.split('\n'); console.table(this.wordsArray?.length)  
-      var pass = this._getWords(10).toString().replaceAll(',', this.separetor);
-      console.log(pass)
-    }
-    );
+    //httpClient.get('assets/words.txt', {headers: {}, responseType:'text'})
+    //.subscribe((data:any) => { 
+    //  this.wordsArray=data.split('\n'); console.table(this.wordsArray?.length)  
+    //  var pass = this._getWords(10).toString().replaceAll(',', this.separetor);
+    //  console.log(pass)
+    //}
+    //);
   }
 
   private _getRandonIndex(): number{
